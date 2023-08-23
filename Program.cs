@@ -10,9 +10,9 @@ namespace SWSF_Scarmble_Search // Note: actual namespace depends on the project 
             //HashSearch.MainSearch("02F03E16", 4);
 
             //Unknown Hash
-            //HashSearch.MainSearch("2C73AF55", 8);
+            HashSearch.MainSearch("2C73AF55", 8);
 
-            //Console.WriteLine(SWSFScamble.Scamble("Test"));
+            Console.WriteLine(SWSFScamble.Scamble("Test"));
             if (args.Length != 0)
             {
                 if (args[0].ToLower() == "-h")
@@ -22,7 +22,14 @@ namespace SWSF_Scarmble_Search // Note: actual namespace depends on the project 
 
                 if (args[0].ToLower() == "-s")
                 {
-                    HashSearch.MainSearch(args[1], int.Parse(args[2]));
+                    if(int.Parse(args[2])<7)
+                    {
+                        HashSearch.MainSearch(args[1], int.Parse(args[2]));
+                    }
+                    else
+                    {
+                        HashSearch.ThreadSearch(args[1], int.Parse(args[2]));
+                    }
                 }
             }
             else
